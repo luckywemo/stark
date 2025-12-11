@@ -1,0 +1,11 @@
+[project]
+name = "pass-manager"
+description = "Stacks Builder Challenge demo: pass access + fee splitter"
+authors = ["builder"]
+
+[contracts.pass-manager]
+path = "contracts/pass-manager.clar"
+# Target Clarity 4 features for the Builder Challenge.
+clarity_version = 4
+epoch = "2.5"
+

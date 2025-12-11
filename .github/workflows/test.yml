@@ -1,0 +1,33 @@
+name: Test
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Install Clarinet
+      uses: denoland/setup-deno@v1
+      with:
+        deno-version: v1.36.0
+    
+    - name: Install Clarinet CLI
+      run: |
+        cargo install clarinet --locked
+    
+    - name: Run Clarinet Tests
+      run: clarinet test
+      
+    - name: Check Frontend Build
+      working-directory: ./web
+      run: |
+        npm ci
+        npm run build
+
