@@ -76,3 +76,5 @@ export const transitions = {
   slow: '0.3s ease',
 } as const
 
+
+

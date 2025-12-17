@@ -245,7 +245,7 @@ export default function Home() {
   const stxToMicroStx = (microStx: number) => (microStx / 1_000_000).toFixed(6)
 
   return (
-    <div className="container">
+    <div className="container" style={{ marginTop: 'var(--site-header-height)' }}>
       <div className="card">
         <h1>🎫 Pass Manager</h1>
         <p>Stacks Builder Challenge - Buy passes, generate fees, earn rewards</p>

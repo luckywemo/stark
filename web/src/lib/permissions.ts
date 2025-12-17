@@ -50,3 +50,5 @@ export function getPermissions(role: Role): Permission[] {
   return rolePermissions[role] ?? []
 }
 
+
+

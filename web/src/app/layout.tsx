@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { ConnectWalletProvider } from '@/components/ConnectWallet'
 import { ConnectButton } from '@/components/ConnectWallet'
+import { Header } from '@/components/Header'
 
 export const metadata: Metadata = {
   title: 'Pass Manager - Stacks Builder Challenge',
@@ -17,6 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <ConnectWalletProvider>
+          <Header />
           <ConnectButton />
           {children}
         </ConnectWalletProvider>

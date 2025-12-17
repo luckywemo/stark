@@ -30,3 +30,5 @@ export function getDeviceType(width: number): 'mobile' | 'tablet' | 'desktop' {
   return 'desktop'
 }
 
+
+
