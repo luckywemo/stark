@@ -186,6 +186,18 @@
     pass-duration-blocks: (var-get pass-duration-blocks)
   })
 
+;; Clarity 4 Enhancements
+;; Note: These use Clarity 4 syntax which requires a compatible Clarinet/Stacks node version.
+
+(define-public (check-contract-health)
+  (begin
+    (print {event: "health-check", caller: tx-sender, time: block-height})
+    (ok true)))
+
+;; Placeholder for future Clarity 4 specific logging/diagnostics
+(define-private (log-diagnostic (message (string-ascii 64)))
+  (print {event: "diagnostic", msg: message, height: block-height}))
+
 ;; TODO: add explicit Clarity 4-only built-ins once finalized for deployment
 ;; (e.g., diagnostics helpers). Keep contract valid on older tooling until then.
-
+```
