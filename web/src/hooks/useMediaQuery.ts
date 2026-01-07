@@ -1,4 +1,8 @@
-// Custom hook for media query matching
+/**
+ * Custom hook for media query matching.
+ * @param query The media query string to match against.
+ * @returns A boolean indicating if the media query matches.
+ */
 
 import { useState, useEffect } from 'react'
 
@@ -30,6 +34,3 @@ export function useMediaQuery(query: string): boolean {
 
   return matches
 }
-
-
-
