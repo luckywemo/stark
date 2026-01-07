@@ -60,3 +60,4 @@ export function Tabs({ tabs, defaultTab, onTabChange }: TabsProps) {
 
 
 
+

@@ -1,5 +1,13 @@
-// Date utility functions
+/**
+ * Date and time formatting and manipulation utilities.
+ */
 
+/**
+ * Formats a date object or string into a readable date string.
+ * @param date The date to format.
+ * @param format The format style ('short', 'long', or 'relative').
+ * @returns The formatted date string.
+ */
 export function formatDate(date: Date | string | number, format: 'short' | 'long' | 'relative' = 'short'): string {
   const dateObj = typeof date === 'string' || typeof date === 'number' 
     ? new Date(date) 
@@ -18,6 +26,12 @@ export function formatDate(date: Date | string | number, format: 'short' | 'long
   return dateObj.toLocaleDateString('en-US', options)
 }
 
+/**
+ * Formats a date into a localized date and time string.
+ * @param date The date to format.
+ * @param includeSeconds Whether to include seconds in the output.
+ * @returns The formatted date and time string.
+ */
 export function formatDateTime(date: Date | string | number, includeSeconds = false): string {
   const dateObj = typeof date === 'string' || typeof date === 'number' 
     ? new Date(date) 
@@ -33,6 +47,11 @@ export function formatDateTime(date: Date | string | number, includeSeconds = fa
   })
 }
 
+/**
+ * Formats a date as a relative time string (e.g., '5 minutes ago').
+ * @param date The date to format.
+ * @returns The relative time string.
+ */
 export function formatRelativeTime(date: Date | string | number): string {
   const dateObj = typeof date === 'string' || typeof date === 'number' 
     ? new Date(date) 
@@ -57,6 +76,11 @@ export function formatRelativeTime(date: Date | string | number): string {
   return 'just now'
 }
 
+/**
+ * Checks if a given date is today.
+ * @param date The date to check.
+ * @returns True if the date is today.
+ */
 export function isToday(date: Date | string | number): boolean {
   const dateObj = typeof date === 'string' || typeof date === 'number' 
     ? new Date(date) 
@@ -65,6 +89,11 @@ export function isToday(date: Date | string | number): boolean {
   return dateObj.toDateString() === today.toDateString()
 }
 
+/**
+ * Checks if a given date was yesterday.
+ * @param date The date to check.
+ * @returns True if the date was yesterday.
+ */
 export function isYesterday(date: Date | string | number): boolean {
   const dateObj = typeof date === 'string' || typeof date === 'number' 
     ? new Date(date) 
@@ -74,6 +103,11 @@ export function isYesterday(date: Date | string | number): boolean {
   return dateObj.toDateString() === yesterday.toDateString()
 }
 
+/**
+ * Checks if a given date is within the last 7 days.
+ * @param date The date to check.
+ * @returns True if the date is within this week.
+ */
 export function isThisWeek(date: Date | string | number): boolean {
   const dateObj = typeof date === 'string' || typeof date === 'number' 
     ? new Date(date) 
@@ -84,24 +118,38 @@ export function isThisWeek(date: Date | string | number): boolean {
   return dateObj >= weekAgo && dateObj <= today
 }
 
+/**
+ * Adds a specified number of days to a date.
+ * @param date The base date.
+ * @param days The number of days to add.
+ * @returns A new Date object.
+ */
 export function addDays(date: Date, days: number): Date {
   const result = new Date(date)
   result.setDate(result.getDate() + days)
   return result
 }
 
+/**
+ * Adds a specified number of hours to a date.
+ * @param date The base date.
+ * @param hours The number of hours to add.
+ * @returns A new Date object.
+ */
 export function addHours(date: Date, hours: number): Date {
   const result = new Date(date)
   result.setHours(result.getHours() + hours)
   return result
 }
 
+/**
+ * Adds a specified number of minutes to a date.
+ * @param date The base date.
+ * @param minutes The number of minutes to add.
+ * @returns A new Date object.
+ */
 export function addMinutes(date: Date, minutes: number): Date {
   const result = new Date(date)
   result.setMinutes(result.getMinutes() + minutes)
   return result
 }
-
-
-
-

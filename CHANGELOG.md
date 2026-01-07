@@ -8,6 +8,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- **Round 2: Documentation & Cleanup**
+    - Added comprehensive JSDoc to all 17 utility files in `web/src/utils/`.
+    - Cleaned up formatting and removed trailing newlines in utility files.
+    - Updated project constants and configuration metadata.
+- **Round 2: Unit Testing**
+    - Setup Vitest in the `web/` directory for frontend unit testing.
+    - Added 41 unit tests for core utilities (`validation.ts`, `numbers.ts`, `address.ts`).
+    - Fixed several type errors in `object.ts` and `array.ts` identified during testing.
+- **Clarity 4 Enhancements**
+    - Added `check-contract-health` and `log-diagnostic` functions to `pass-manager.clar`.
 - Initial project setup with Clarity contract
 - Next.js frontend with wallet connection
 - Comprehensive test suite
@@ -38,6 +48,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Frontend application
 - Test suite
 - Basic documentation
+
 
 
 

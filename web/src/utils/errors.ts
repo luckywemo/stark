@@ -1,5 +1,10 @@
-// Error handling utilities
+/**
+ * Error handling utilities for contract, validation, and network errors.
+ */
 
+/**
+ * Error class for Stacks smart contract related failures.
+ */
 export class ContractError extends Error {
   constructor(
     message: string,
@@ -11,6 +16,9 @@ export class ContractError extends Error {
   }
 }
 
+/**
+ * Error class for form or data validation failures.
+ */
 export class ValidationError extends Error {
   constructor(message: string, public field?: string) {
     super(message)
@@ -18,6 +26,9 @@ export class ValidationError extends Error {
   }
 }
 
+/**
+ * Error class for network or API related failures.
+ */
 export class NetworkError extends Error {
   constructor(message: string, public statusCode?: number) {
     super(message)
@@ -25,6 +36,11 @@ export class NetworkError extends Error {
   }
 }
 
+/**
+ * Parses a Clarity error response and returns a user-friendly message.
+ * @param error The raw error object or string from Clarity.
+ * @returns A user-friendly error message string.
+ */
 export function parseClarityError(error: any): string {
   if (!error) return 'Unknown error'
 
@@ -59,6 +75,11 @@ export function parseClarityError(error: any): string {
   return errorString
 }
 
+/**
+ * Global error handler to convert various error types into human-readable messages.
+ * @param error The error object to handle.
+ * @returns A readable error message string.
+ */
 export function handleError(error: unknown): string {
   if (error instanceof ContractError) {
     return error.message
@@ -78,7 +99,3 @@ export function handleError(error: unknown): string {
   
   return 'An unexpected error occurred'
 }
-
-
-
-

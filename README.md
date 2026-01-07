@@ -13,12 +13,20 @@ Pass-based access with fee splitting and referrals, aimed at earning Stacks Buil
 - Install [Clarinet](https://docs.hiro.so/clarinet/getting-started) (>= latest with Clarity 4 support)
 - Node.js 18+ (for frontend)
 
-### Test the Contract
+### Test the Contract (Clarity)
 ```bash
+# Run Clarity smart contract tests
 clarinet test
 ```
 
-This runs both basic and edge case tests. See `tests/` directory for all test files.
+### Test the Frontend (TypeScript)
+```bash
+# Run Vitest unit tests for utilities
+cd web
+npm test
+```
+
+This runs both basic and edge case tests. See `tests/` directory for contract tests and `web/src/utils/*.test.ts` for frontend unit tests.
 
 ## Deploy (testnet)
 

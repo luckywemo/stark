@@ -1,7 +1,8 @@
-// API utility functions
+/**
+ * API utility functions for interacting with Stacks nodes and internal services.
+ */
 
 import { getApiUrl } from './contract-helpers'
-import type { NetworkError } from './errors'
 
 export interface ApiResponse<T> {
   data?: T
@@ -9,6 +10,12 @@ export interface ApiResponse<T> {
   status: number
 }
 
+/**
+ * Generic API request wrapper using fetch.
+ * @param endpoint The API endpoint path.
+ * @param options Standard fetch request options.
+ * @returns An ApiResponse object with data or error.
+ */
 export async function apiRequest<T>(
   endpoint: string,
   options: RequestInit = {}
@@ -44,6 +51,14 @@ export async function apiRequest<T>(
   }
 }
 
+/**
+ * Calls a read-only function on a Stacks smart contract.
+ * @param contractAddress The full contract principal.
+ * @param functionName The name of the function to call.
+ * @param args Array of arguments for the function.
+ * @param sender The sender's address for context.
+ * @returns An ApiResponse with the call result.
+ */
 export async function callReadOnlyContract(
   contractAddress: string,
   functionName: string,
@@ -59,6 +74,12 @@ export async function callReadOnlyContract(
   })
 }
 
+/**
+ * Fetches transactions for a specific Stacks address.
+ * @param address The Stacks address to query.
+ * @param limit The maximum number of transactions to return.
+ * @returns An ApiResponse with the transactions list.
+ */
 export async function getTransactions(
   address: string,
   limit = 10
@@ -66,6 +87,10 @@ export async function getTransactions(
   return apiRequest(`/extended/v1/address/${address}/transactions?limit=${limit}`)
 }
 
+/**
+ * Fetches the current block height from the Stacks node.
+ * @returns An ApiResponse with the current tip height.
+ */
 export async function getBlockHeight(): Promise<ApiResponse<number>> {
   const response = await apiRequest<any>('/v2/info')
   
@@ -81,7 +106,3 @@ export async function getBlockHeight(): Promise<ApiResponse<number>> {
     error: 'Could not fetch block height',
   }
 }
-
-
-
-
